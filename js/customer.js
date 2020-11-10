@@ -1,12 +1,12 @@
 class Customer {
-    constructor(name, course, author) {
-        this.name = name;
-        this.course = course;
-        this.author = author;
+    constructor() {
+  
     }
-    reateCourse = (name, course, author) => {
+    createCourse = (name, course, author) => {
+        const feedBack = form.querySelector('.feedback');
         const customerDiv = document.querySelector('.customer-list');
-        const random = randomNum();
+
+        const random = this.randomNum();
         const customer = document.createElement('div');
         customer.classList.add('col-11', 'mx-auto', 'col-md-6', 'col-lg-4', 'my-3');
         customer.innerHTML = `<div class="card text-left">
@@ -20,6 +20,7 @@ class Customer {
         </div>
        </div>`;
        customerDiv.appendChild(customer);
+       
     }
     randomNum = () => {
         const random = Math.floor(Math.random() * 5) + 1;
@@ -28,8 +29,54 @@ class Customer {
     loadingAndFeeback = () => {
         const feedBack = document.querySelector('.feedback');
         const loading = document.querySelector('.loading');
-        
+
         feedBack.classList.add('showItem', 'alert', 'alert-success');
         loading.classList.add('showItem');
     }
+    feedbackLoadingReset = () => {
+        const feedBack = document.querySelector('.feedback');
+        const loading = document.querySelector('.loading');
+
+        feedBack.classList.remove('showItem');
+        loading.classList.remove('showItem');
+    }
+    inputsGlow = () => {
+        const inputs = document.querySelectorAll('input');
+
+        inputs.forEach(input => {
+            input.addEventListener('focusout', () => {
+                if(input.value === ''){
+                    input.classList.add('fail');
+                } else { 
+                    input.classList.remove('fail');
+                    input.classList.add('complete');
+                    const complete = document.querySelectorAll('.complete');
+                    if(complete.length > 2){
+                        submitBtn.disabled = false;
+                    }
+                }
+            })
+           
+        })
+    }
+    resetInputsGlow = () => {
+        const complete = document.querySelectorAll('.complete');
+        complete.forEach(reset => {
+        reset.classList.remove('complete');
+    })
+        console.log(complete)
+    }
+
+    resetSubmitAndInputs = () => {
+        const submitBtn = document.querySelector('.submitBtn');
+        const cusName = document.querySelector('#name');
+        const cusCourse = document.querySelector('#course');
+        const cusAuthor = document.querySelector('#author');
+        
+        cusName.value = '';
+        cusCourse.value = '';
+        cusAuthor.value = '';
+        submitBtn.disabled = true;
+    }
+    
 }
