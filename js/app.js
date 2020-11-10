@@ -25,7 +25,7 @@ form.addEventListener('submit', (e) => {
     const patron = new Customer;
     setTimeout( () => {  
         customer.createCourse(name, course, author);
-        patron.feedbackLoadingReset();
+        patron.loadingAndFeedbackReset();
     }, 3000)
     customer.loadingAndFeeback();
     customer.resetInputsGlow();

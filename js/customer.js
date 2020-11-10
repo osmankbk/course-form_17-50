@@ -2,6 +2,7 @@ class Customer {
     constructor() {
   
     }
+//Function that creates courses
     createCourse = (name, course, author) => {
         const feedBack = form.querySelector('.feedback');
         const customerDiv = document.querySelector('.customer-list');
@@ -22,10 +23,12 @@ class Customer {
        customerDiv.appendChild(customer);
        
     }
+//Random number func for the random images
     randomNum = () => {
         const random = Math.floor(Math.random() * 5) + 1;
         return random;
     }
+//The func that displays the feedback msg and the loading icon
     loadingAndFeeback = () => {
         const feedBack = document.querySelector('.feedback');
         const loading = document.querySelector('.loading');
@@ -33,13 +36,15 @@ class Customer {
         feedBack.classList.add('showItem', 'alert', 'alert-success');
         loading.classList.add('showItem');
     }
-    feedbackLoadingReset = () => {
+//This func resets them
+    loadingAndFeedbackReset = () => {
         const feedBack = document.querySelector('.feedback');
         const loading = document.querySelector('.loading');
 
         feedBack.classList.remove('showItem');
         loading.classList.remove('showItem');
     }
+ //This funch controls the inputs border glow
     inputsGlow = () => {
         const inputs = document.querySelectorAll('input');
 
@@ -59,6 +64,7 @@ class Customer {
            
         })
     }
+//This resets them
     resetInputsGlow = () => {
         const complete = document.querySelectorAll('.complete');
         complete.forEach(reset => {
@@ -66,7 +72,7 @@ class Customer {
     })
         console.log(complete)
     }
-
+//This func clears the inputs and disable the submit button 
     resetSubmitAndInputs = () => {
         const submitBtn = document.querySelector('.submitBtn');
         const cusName = document.querySelector('#name');
