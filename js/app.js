@@ -1,8 +1,14 @@
-const form = document.querySelector('form');
-const cusName = form.querySelector('#name');
-const cusCourse = form.querySelector('#course');
-const cusAuthor = form.querySelector('#author');
-const submitBtn = form.querySelector('.submitBtn');
+ const form = document.querySelector('form');
+// const cusName = form.querySelector('#name');
+// const cusCourse = form.querySelector('#course');
+// const cusAuthor = form.querySelector('#author');
+// const submitBtn = form.querySelector('.submitBtn');
+const [cusName, cusCourse, cusAuthor, submitBtn] = [
+    form.querySelector('#name'),
+    form.querySelector('#course'),
+    form.querySelector('#author'),
+    form.querySelector('.submitBtn')
+];
 let customer;
 
 //Window load event
